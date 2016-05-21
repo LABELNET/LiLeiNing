@@ -22,7 +22,6 @@
     </resultMap>
 
     <select id="getClothesList" resultType="List" resultMap="clothes">
-
       SELECT
           c.id AS id,
           c.name AS name,

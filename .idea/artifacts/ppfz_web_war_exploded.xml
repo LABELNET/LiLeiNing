@@ -7,6 +7,9 @@
           <element id="module-output" name="ppfz-web" />
         </element>
         <element id="directory" name="lib">
+          <element id="archive" name="ppfz-dao-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="ppfz-dao" />
+          </element>
           <element id="archive" name="ppfz-config-1.0-SNAPSHOT.jar">
             <element id="module-output" name="ppfz-config" />
           </element>
