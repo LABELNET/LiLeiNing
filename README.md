@@ -2,6 +2,8 @@
 
 
 # 2016.05.21
+  * tomcat 服务器搭建完毕：开启和关闭见桌面快捷方式
+  * 图片访问地址： http://192.168.253.1:8088/image/suihua1.jpg
   * 服装字段
   ```
       private Integer id;
@@ -11,6 +13,24 @@
       private Integer cateId;
       
   ```
+  * linux 远程链接 数据库
+  
+  ```
+   命令： yuan@yuan:~$ mysql -u root -h 192.168.253.1 -p
+
+  
+  ```
+  
+  
+  * 添加测试数据
+   ```
+     insert into cate(content) values('短袖');
+     
+     insert into clothes(name,image,price,cateId) values('碎花短袖','["/image/suihua1.jpg","/image/suihua2.jpg","/image/suihua3.jpg"]',78.9,1);
+   
+     insert into sizes(size,count,clothesId) values(180,10,1);
+   
+   ```
 
 # 2016.05.19
  * 初始化 品牌服装商店功能：
