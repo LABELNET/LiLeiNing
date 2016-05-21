@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LiLeiNing.iml" filepath="$PROJECT_DIR$/LiLeiNing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppfz-config/ppfz-config.iml" filepath="$PROJECT_DIR$/ppfz-config/ppfz-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppfz-dao/ppfz-dao.iml" filepath="$PROJECT_DIR$/ppfz-dao/ppfz-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ppfz-web/ppfz-web.iml" filepath="$PROJECT_DIR$/ppfz-web/ppfz-web.iml" />
+    </modules>
+  </component>
+</project>
