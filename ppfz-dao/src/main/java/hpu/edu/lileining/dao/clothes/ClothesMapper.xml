@@ -8,47 +8,29 @@
 
     <select id="getClothesList" resultType="hpu.edu.lileining.dao.model.ClothesVo">
         SELECT
-
-
-
-    </select>
-
-    <select id="findNewsByCateRnum" resultType="yuan.ssm.pojo.NewsCustom">
-        SELECT
-        n.id AS id,
-        n.title AS title,
-        n.dt AS dt,
-        n.content AS content,
-        n.img AS img,
-        n.rnum AS rnum,
-        co.cnum,
-        c.id AS cid,
-        c.content AS ccont,
-          s.id sid,
-        s.source scont
+          c.id AS id,
+          c.name AS name,
+          c.image AS image,
+          c.price AS price,
+          c.cateId AS cateId,
+          ca.content AS cateContent,
         FROM
-        source s,
-        cate c,
-        news n
-        LEFT JOIN
-        (
-        SELECT
-        nid,
-        count(id) AS cnum
-        FROM
-        comment
-        GROUP BY nid
-        ) AS co
-        ON
-        co.nid=n.id
+          cate ca,
+          clothes c LEFT JOIN
+          (
+             SELECT
+               *
+             FROM
+               sizes
+             GROUP BY clothesId
+          ) AS s
+          ON
+           c.id=s.clothesId
         WHERE
-        n.cid=c.id
-        AND
-        c.content=#{cate}
-        AND
-        s.id=n.sid
-        ORDER BY rnum DESC
-        Limit #{start},#{num}
+          ca.id=c.cateId
+        ORDER BY c.id DESC
+        limit #{start},#{num}
     </select>
+
 
 </mapper>
