@@ -2,6 +2,7 @@ package colthestest;
 
 
 import hpu.edu.lileining.dao.clothes.ClothesMapper;
+import hpu.edu.lileining.dao.model.Clothes;
 import hpu.edu.lileining.dao.model.ClothesVo;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +31,14 @@ public class ClothesTest {
             System.out.println(vo.toString());
         }
 
+    }
+
+    @Test
+    public void getClothesJianTest(){
+        List<Clothes> clothesList = clothesMapper.getClothesJian();
+        for (Clothes vo:clothesList){
+            System.out.println(vo.toString());
+        }
     }
 
 }

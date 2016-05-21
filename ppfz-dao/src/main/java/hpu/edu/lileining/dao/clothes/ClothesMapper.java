@@ -1,6 +1,7 @@
 package hpu.edu.lileining.dao.clothes;
 
 
+import hpu.edu.lileining.dao.model.Clothes;
 import hpu.edu.lileining.dao.model.ClothesVo;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,5 +21,10 @@ public interface ClothesMapper {
      */
     List<ClothesVo> getClothesList(@Param("start") Integer start,@Param("num") Integer num);
 
+    /**
+     * 获取最新的三条数据
+     * @return
+     */
+    List<Clothes> getClothesJian();
 
 }

@@ -44,5 +44,14 @@
         limit #{start},#{num}
     </select>
 
+    <select id="getClothesJian" resultType="hpu.edu.lileining.dao.model.Clothes">
+        SELECT
+          *
+        FROM
+          clothes
+        ORDER BY id Desc
+        limit 3
+    </select>
+
 
 </mapper>

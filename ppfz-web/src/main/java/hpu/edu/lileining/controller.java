@@ -3,8 +3,8 @@ package hpu.edu.lileining;
 
 import com.alibaba.fastjson.JSON;
 import hpu.edu.lileining.dao.clothes.ClothesMapper;
+import hpu.edu.lileining.dao.model.Clothes;
 import hpu.edu.lileining.dao.model.ClothesVo;
-import hpu.edu.lileining.dao.model.DataBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,15 +43,30 @@ public class controller {
         }
         p=ALL_PAGR_NUM*(p-1);
         List<ClothesVo> clothesList = clothesMapper.getClothesList(p, ALL_PAGR_NUM);
-        DataBean<List<ClothesVo>> dataBean = new DataBean<List<ClothesVo>>();
         if(clothesList==null){
             clothesList=new ArrayList<ClothesVo>();
         }
-        dataBean.setData(clothesList);
-        dataBean.setCode(0);
-        dataBean.setMsg("数据加载成功");
+        return toStr(clothesList);
+    }
 
-        return JSON.toJSONString(dataBean);
+    /**
+     * 主页最新3条数据
+     * @return
+     */
+    @RequestMapping("getClothesTop")
+    public @ResponseBody String getClothesTop(){
+        List<Clothes> clothesJian = clothesMapper.getClothesJian();
+       return toStr(clothesJian);
+    }
+
+
+    /**
+     * 跨域，回调调用
+     * @param o
+     * @return
+     */
+    private String toStr(Object o){
+        return "cp("+JSON.toJSONString(o)+")";
     }
 
 }
