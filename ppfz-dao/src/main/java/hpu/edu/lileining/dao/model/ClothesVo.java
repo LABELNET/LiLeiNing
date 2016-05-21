@@ -26,4 +26,12 @@ public class ClothesVo extends Clothes{
     public void setSizes(List<Sizes> sizes) {
         this.sizes = sizes;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"ClothesVo{" +
+                "cateContent='" + cateContent + '\'' +
+                ", sizes=" + sizes +
+                '}';
+    }
 }

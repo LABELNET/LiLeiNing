@@ -47,4 +47,15 @@ public class Clothes {
     public void setCateId(Integer cateId) {
         this.cateId = cateId;
     }
+
+    @Override
+    public String toString() {
+        return "Clothes{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                ", price=" + price +
+                ", cateId=" + cateId +
+                '}';
+    }
 }

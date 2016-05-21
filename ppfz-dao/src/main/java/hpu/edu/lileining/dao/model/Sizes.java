@@ -33,4 +33,13 @@ public class Sizes {
     public void setSize(Integer size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return "Sizes{" +
+                "id=" + id +
+                ", count=" + count +
+                ", size=" + size +
+                '}';
+    }
 }

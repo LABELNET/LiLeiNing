@@ -22,7 +22,7 @@
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="hpu.edu.lileiningl.dao"></property>
+        <property name="basePackage" value="hpu.edu.lileining.dao"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 

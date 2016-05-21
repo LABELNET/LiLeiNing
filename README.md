@@ -1,5 +1,5 @@
 # 品牌服装商店实现 v1.0
-
+  
 
 # 2016.05.21
   * tomcat 服务器搭建完毕：开启和关闭见桌面快捷方式
@@ -30,6 +30,30 @@
    
      insert into sizes(size,count,clothesId) values(180,10,1);
    
+   ```
+   
+  * 一对多查询
+   ```
+       SELECT
+             c.id AS id,
+             c.name AS name,
+             c.image AS image,
+             c.price AS price,
+             c.cateId AS cateId,
+             ca.content AS cateContent,
+             s.id AS sid,
+             s.size AS size,
+             s.count AS count
+           FROM
+             cate ca,
+             clothes c,
+             sizes s
+           WHERE
+             ca.id=c.cateId
+            And 
+             s.clothesId=c.id
+           ORDER BY c.id DESC
+           
    ```
 
 # 2016.05.19

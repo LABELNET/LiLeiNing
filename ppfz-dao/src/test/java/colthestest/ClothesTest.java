@@ -26,7 +26,10 @@ public class ClothesTest {
     @Test
     public void getClothesListTest(){
         List<ClothesVo> clothesList = clothesMapper.getClothesList(0, 10);
-        System.out.println(clothesList.toString());
+        for (ClothesVo vo:clothesList){
+            System.out.println(vo.toString());
+        }
+
     }
 
 }

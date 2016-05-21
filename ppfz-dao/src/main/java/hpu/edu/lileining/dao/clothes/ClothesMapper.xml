@@ -5,29 +5,42 @@
 
 <mapper namespace="hpu.edu.lileining.dao.clothes.ClothesMapper">
 
+    <resultMap id="clothes" type="hpu.edu.lileining.dao.model.ClothesVo">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="image" column="image"/>
+        <result property="price" column="price"/>
+        <result property="cateId" column="cateId"/>
+        <result property="cateContent" column="cateContent"/>
 
-    <select id="getClothesList" resultType="hpu.edu.lileining.dao.model.ClothesVo">
-        SELECT
+        <collection property="sizes" ofType="hpu.edu.lileining.dao.model.Sizes">
+            <id property="id" column="sid"/>
+            <result property="size" column="size"/>
+            <result property="count" column="count"/>
+        </collection>
+
+    </resultMap>
+
+    <select id="getClothesList" resultType="List" resultMap="clothes">
+
+      SELECT
           c.id AS id,
           c.name AS name,
           c.image AS image,
           c.price AS price,
           c.cateId AS cateId,
           ca.content AS cateContent,
+          s.id AS sid,
+          s.size AS size,
+          s.count AS count
         FROM
           cate ca,
-          clothes c LEFT JOIN
-          (
-             SELECT
-               *
-             FROM
-               sizes
-             GROUP BY clothesId
-          ) AS s
-          ON
-           c.id=s.clothesId
+          clothes c,
+          sizes s
         WHERE
           ca.id=c.cateId
+         And
+          s.clothesId=c.id
         ORDER BY c.id DESC
         limit #{start},#{num}
     </select>
