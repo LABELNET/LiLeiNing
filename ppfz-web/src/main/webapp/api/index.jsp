@@ -14,7 +14,8 @@
 
  <h1>品牌服装- 接口API v1.0 </h1>
  <hr>
-
+ <h3>地址 ： http://ip:8088/api/getClothesIfo </h3>
+ <h4>参数 ： p 页数</h4>
 
 
 </body>

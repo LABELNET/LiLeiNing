@@ -4,12 +4,14 @@ package hpu.edu.lileining;
 import com.alibaba.fastjson.JSON;
 import hpu.edu.lileining.dao.clothes.ClothesMapper;
 import hpu.edu.lileining.dao.model.ClothesVo;
+import hpu.edu.lileining.dao.model.DataBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +34,7 @@ public class controller {
 
     /**
      * 分页加载服装数据
+     * p : 当前页数
      */
     @RequestMapping("getClothesIfo")
     public @ResponseBody String  getClothesIfo(@RequestParam Integer p){
@@ -40,7 +43,15 @@ public class controller {
         }
         p=ALL_PAGR_NUM*(p-1);
         List<ClothesVo> clothesList = clothesMapper.getClothesList(p, ALL_PAGR_NUM);
-        return JSON.toJSONString(clothesList);
+        DataBean<List<ClothesVo>> dataBean = new DataBean<List<ClothesVo>>();
+        if(clothesList==null){
+            clothesList=new ArrayList<ClothesVo>();
+        }
+        dataBean.setData(clothesList);
+        dataBean.setCode(0);
+        dataBean.setMsg("数据加载成功");
+
+        return JSON.toJSONString(dataBean);
     }
 
 }
